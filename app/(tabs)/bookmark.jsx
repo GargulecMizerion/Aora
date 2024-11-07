@@ -1,11 +1,11 @@
-import {View, Text} from 'react-native'
+import {SafeAreaView, View, Text} from 'react-native'
 import React from 'react'
 
 const Bookmark = () => {
     return (
-        <View>
+        <SafeAreaView>
             <Text>Bookmark</Text>
-        </View>
+        </SafeAreaView>
     )
 }
 export default Bookmark

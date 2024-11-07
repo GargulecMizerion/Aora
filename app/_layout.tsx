@@ -3,6 +3,7 @@ import React, {useEffect} from 'react'
 import {Slot, SplashScreen, Stack} from "expo-router";
 import { useFonts } from "expo-font";
 import "../global.css";
+import TabsLayout from "../app/(tabs)/_layout.jsx"
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,7 +26,9 @@ const RootLayout = () => {
 
     return (
         <Stack>
-            <Stack.Screen name="index" options={{headerShown: false}}/>
+            <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
+
+
             {/* Pierwszy w Stacku okresla ekran startowy   */}
             {/*<Stack.Screen name="profile" />*/}
         </Stack>
