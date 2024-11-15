@@ -1,11 +1,13 @@
-import {Text, View} from 'react-native'
-import React from 'react'
+import { SafeAreaView, Text, View } from "react-native";
+import React from "react";
 
 const SignIn = () => {
-    return (
-        <View>
-            <Text>SignIn</Text>
-        </View>
-    )
-}
-export default SignIn
+  return (
+    <SafeAreaView style={styles.container}>
+      <View className="w-full h-full bg-white">
+        <Text className="text-9xl">SignIn</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
+export default SignIn;

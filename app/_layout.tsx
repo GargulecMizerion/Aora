@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import "../global.css";
 import TabsLayout from "../app/(tabs)/_layout.jsx";
 import Home from "@/app/(tabs)/home";
+import headerShownContext from "@react-navigation/elements/src/Header/HeaderShownContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,7 +23,7 @@ const RootLayout = () => {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <Stack>
+    <Stack screenOptions={{ headerShown: false }}>
       {/*<Stack.Screen name="search" options={{ headerShown: false }} />*/}
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
