@@ -23,8 +23,9 @@ const RootLayout = () => {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack screenOptions={{}}>
       {/*<Stack.Screen name="search" options={{ headerShown: false }} />*/}
+      <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
 
       {/* Pierwszy w Stacku okresla ekran startowy   */}
