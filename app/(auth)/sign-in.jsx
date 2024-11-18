@@ -3,12 +3,17 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../../constants";
 import FormField from "../../components/FormField";
-import { useNavigation } from "expo-router";
+import { Link, useNavigation } from "expo-router";
+import CustomButton from "../../components/CustomButton";
 const SignIn = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const submit = () => {};
 
   return (
     <SafeAreaView className="flex-1 bg-primary w-full">
@@ -28,17 +33,31 @@ const SignIn = () => {
           <FormField
             title="Email"
             value={form.email}
-            handleChangeText={(e) => setForm(...form, (form.email = e))}
+            handleChangeText={(e) => setForm({ ...form, email: e })}
             otherStyles="mt-7"
             keyboardType="email-address"
           />
           <FormField
             title="Password"
             value={form.password}
-            handleChangeText={(e) => setForm(...form, (form.password = e))}
+            handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
             keyboardType="password"
           />
+          <CustomButton
+            title="Login"
+            handlePress={submit}
+            containerStyles="mt-7"
+            isLoading={isSubmitting}
+          />
+          <View className={"flex-row justify-center pt-5 gap-2"}>
+            <Text className={"text-lg text-gray-100"}>
+              Don't have an account?
+            </Text>
+            <Link href="/sign-up" className="text-lg text-secondary-100">
+              Sign up
+            </Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
