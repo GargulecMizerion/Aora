@@ -6,7 +6,10 @@ import FormField from "../../components/FormField";
 import { Link, router, useNavigation } from "expo-router";
 import CustomButton from "../../components/CustomButton";
 import { createUser } from "../../lib/appwrite";
-const SignIn = () => {
+import { useGlobalContext } from "../../context/GlobalProvider";
+const SignUp = () => {
+  const { setUser, setIsLoggedIn } = useGlobalContext();
+
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -20,11 +23,12 @@ const SignIn = () => {
       Alert.alert("Error", "Please fill in all fields.");
     }
     setIsSubmitting(true);
-
     try {
       const result = await createUser(form);
 
       // Później bedzie ustawiany context
+      setUser(result);
+      setIsLoggedIn(true);
       setForm({ username: "", email: "", password: "" });
       router.replace("/home");
     } catch (error) {
@@ -90,4 +94,4 @@ const SignIn = () => {
     </SafeAreaView>
   );
 };
-export default SignIn;
+export default SignUp;
