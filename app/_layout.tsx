@@ -6,6 +6,7 @@ import "../global.css";
 import TabsLayout from "../app/(tabs)/_layout.jsx";
 import Home from "@/app/(tabs)/home";
 import headerShownContext from "@react-navigation/elements/src/Header/HeaderShownContext";
+import GlobalProvider from "../context/GlobalProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,16 +24,18 @@ const RootLayout = () => {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <Stack>
-      {/*<Stack.Screen name="search" options={{ headerShown: false }} />*/}
-      <Stack.Screen name="index" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Stack.Screen name="/search/[query]" options={{ headerShown: false }} />
+    <GlobalProvider>
+      <Stack>
+        {/*<Stack.Screen name="search" options={{ headerShown: false }} />*/}
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="/search/[query]" options={{ headerShown: false }} />
 
-      {/* Pierwszy w Stacku okresla ekran startowy   */}
-      {/*<Stack.Screen name="profile" />*/}
-    </Stack>
+        {/* Pierwszy w Stacku okresla ekran startowy   */}
+        {/*<Stack.Screen name="profile" />*/}
+      </Stack>
+    </GlobalProvider>
   );
 };
 export default RootLayout;
